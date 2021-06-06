@@ -8,9 +8,8 @@ const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical';
 const Header = () => {
     return (
         <Appbar.Header style={{backgroundColor:"#4089ff",color:"#fffffd"}}>
-       <Appbar.Content color="white"  title="Title" />
+       <Appbar.Content color="white"  title="Study time" />
        
-        <Appbar.Action color="white" icon={MORE_ICON} onPress={() => {}} />
     </Appbar.Header>
     )
 }
