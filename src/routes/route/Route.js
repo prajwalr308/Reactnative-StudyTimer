@@ -4,7 +4,7 @@ import { View } from 'react-native'
 
 
 import Header from '../../components/header/Header'
-import Stopwatch from '../../components/stopwatch/Stopwatch'
+import Stopwatch from '../../pages/stopwatch/Stopwatch'
 
 
 import { BottomNavigation, Text } from 'react-native-paper';
@@ -21,7 +21,7 @@ const MusicRoute = () => {return(
 
 
 
-const Home = () => {
+const Route = () => {
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
     { key: 'study', title: 'Study', icon: 'home' ,},
@@ -67,4 +67,4 @@ const Home = () => {
 //     )
 // }
 
-export default Home
+export default Route
