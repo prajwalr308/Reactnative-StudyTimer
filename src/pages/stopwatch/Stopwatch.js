@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, Button, TouchableOpacity, Image } from "react-native";
+import { View, Text, Button, TouchableOpacity, Image, Dimensions } from "react-native";
 import CountDown from "react-native-countdown-component";
 import { StyleSheet } from "react-native";
 import Slider from "@react-native-community/slider";
@@ -9,21 +9,30 @@ const Stopwatch = () => {
   const [pause, setpause] = useState(false);
   const [timeState, setTimeState] = useState(0);
   const [hours, setHours] = useState(0);
+  const [clockWidth, setClockWidth] = useState(20)
   useEffect(() => {
     var time = timeState;
     var hoursduration = time * 3600;
     setHours(hoursduration);
+    var clock =Dimensions.get('window').width/13;
+    setClockWidth(clock);
+    console.log(Dimensions.get('window').height)
+
   }, [timeState, hours]);
   return (
-    <View>
-      <Image style={styles.imageGIf} source={water}></Image>
+    <View style={styles.viewTag}>
+      <Image style={styles.imageGif} source={water}></Image>
+      <View style={styles.container}>
+     
+      
       <CountDown
+    
         running={pause}
-        digitStyle={{ backgroundColor: "#ffffff" }}
-        digitTxtStyle={{ color: "#4089ff" }}
+        digitStyle={{ backgroundColor: "#ffffff", }}
+        digitTxtStyle={{ color: "#4089ff",}}
         until={hours * 3600}
         onFinish={() => alert("finished")}
-        size={30}
+       size={clockWidth}
         timeToShow={["H", "M", "S"]}
       />
       {pause ? (
@@ -60,55 +69,92 @@ const Stopwatch = () => {
           onValueChange={(timeState) => setTimeState(timeState)}
         />
       </View>
+
       <Text style={styles.centerText}>{timeState}hrs</Text>
+      </View>
       <TouchableOpacity
-        style={styles.buttonContainerPlay}
+        style={styles.buttonContainerTime}
         onPress={() => {
           setHours(timeState);
         }}
       >
         <Text style={{ color: "white" }}>set time</Text>
       </TouchableOpacity>
+      
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  viewTag:{
+    position:"relative",
+width:"100%",
+height:"100%"
+  },
+
+  container:{
+    position:"absolute",
+    top:"26%",
+    alignSelf:"center"
+  },
   buttonContainerPause: {
-    width: 100,
+    marginTop:"5%",
+    width: "40%",
     backgroundColor: "#fabd39",
-    height: 50,
+    height:"20%",
     alignItems: "center",
-    marginTop: 20,
+ 
     alignSelf: "center",
     borderRadius: 10,
     justifyContent: "center",
   },
   buttonContainerPlay: {
-    width: 100,
+    marginTop:"5%",
+    width: "40%",
     backgroundColor: "#4089ff",
-    height: 50,
+    height: "20%",
     alignItems: "center",
-    marginTop: 20,
+
     alignSelf: "center",
     borderRadius: 10,
     justifyContent: "center",
   },
+  buttonContainerTime: {
+  position:"absolute",
+  bottom:"27%",
+    width: "30%",
+    backgroundColor: "#4089ff",
+    height: "8%",
+    alignItems: "center",
 
+    alignSelf: "center",
+    borderRadius: 10,
+    justifyContent: "center",
+  },
   slider: {
-    marginTop: 20,
-    width: 200,
-    height: 50,
+    marginTop: "10%",
+    width: "100%",
+    
     transform: [{ scaleX: 1.5 }, { scaleY: 1.5 }],
     alignSelf: "center",
   },
-  imageGIf: {
-    alignSelf: "center",
-    height: 320,
+ 
+  imageGif: {
+   position:"absolute",
+  alignSelf:"center",
+  top:"-25%",
+  flex: 1,
+    width: "80%",
+    height: "80%",
+    resizeMode: 'contain'
+   
+
   },
   centerText: {
+   
+  
     alignSelf: "center",
-    fontSize: 40,
+    fontSize: 25,
     color: "#4089ff",
   },
 });
