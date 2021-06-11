@@ -59,7 +59,7 @@ const Stopwatch = () => {
         </TouchableOpacity>
       )}
       </View>
-      <View styles={styles.sliderView}>
+      <View style={styles.sliderView}>
         <Slider
           style={styles.slider}
           maximumValue={13}
@@ -93,23 +93,26 @@ const Stopwatch = () => {
 const styles = StyleSheet.create({
   viewTag:{
     flex:1,
+    // borderWidth:6,
+    // borderColor:"red",
    
 width:"100%",
 height:"100%"
   },
 buttonView:{
-flex:0.15,
+flex:0.1,
 // borderWidth:6,
 // borderColor:"red"
 },
 sliderView:{
-  flex:0.3,
+  flex:0.1,
 //   borderWidth:6,
 // borderColor:"red"
 },
 bottomView:{
   flex:0.2, 
-  
+  // borderWidth:6,
+  // borderColor:"red"
 }
 ,
   container:{
