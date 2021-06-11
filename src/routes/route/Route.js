@@ -8,14 +8,16 @@ import Stopwatch from '../../pages/stopwatch/Stopwatch'
 
 
 import { BottomNavigation, Text } from 'react-native-paper';
+import Music from '../../pages/music/Music';
 
 const StudyRoute = () =>{return(
-    <View style={{backgroundColor:"white"}}><Header />
+    <View style={{backgroundColor:"white",flex:1}}><Header />
     <Stopwatch /></View>
     )} ;
 
 const MusicRoute = () => {return(
-    <View style={{backgroundColor:"white"}}><Header />
+    <View style={{backgroundColor:"white",}}><Header />
+    <Music />
   </View>
     )} ;
 

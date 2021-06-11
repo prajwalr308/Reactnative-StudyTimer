@@ -35,6 +35,8 @@ const Stopwatch = () => {
        size={clockWidth}
         timeToShow={["H", "M", "S"]}
       />
+      </View>
+      <View style={styles.buttonView}>
       {pause ? (
         <TouchableOpacity
           style={styles.buttonContainerPause}
@@ -56,7 +58,8 @@ const Stopwatch = () => {
           <Text style={{ color: "white" }}>Start</Text>
         </TouchableOpacity>
       )}
-      <View>
+      </View>
+      <View styles={styles.sliderView}>
         <Slider
           style={styles.slider}
           maximumValue={13}
@@ -69,9 +72,9 @@ const Stopwatch = () => {
           onValueChange={(timeState) => setTimeState(timeState)}
         />
       </View>
-
-      <Text style={styles.centerText}>{timeState}hrs</Text>
-      </View>
+<View style={styles.bottomView}>
+<Text style={styles.centerText}>{timeState}hrs</Text>
+      
       <TouchableOpacity
         style={styles.buttonContainerTime}
         onPress={() => {
@@ -80,6 +83,8 @@ const Stopwatch = () => {
       >
         <Text style={{ color: "white" }}>set time</Text>
       </TouchableOpacity>
+</View>
+     
       
     </View>
   );
@@ -87,23 +92,39 @@ const Stopwatch = () => {
 
 const styles = StyleSheet.create({
   viewTag:{
-    
-    position:"relative",
+    flex:1,
+   
 width:"100%",
 height:"100%"
   },
-
+buttonView:{
+flex:0.15,
+// borderWidth:6,
+// borderColor:"red"
+},
+sliderView:{
+  flex:0.3,
+//   borderWidth:6,
+// borderColor:"red"
+},
+bottomView:{
+  flex:0.2, 
+  
+}
+,
   container:{
-    flex:1,
-    position:"absolute",
-    top:"26%",
-    alignSelf:"center"
+    flex:0.2,
+    // position:"absolute",
+    // top:"26%",
+    alignSelf:"center",
+  //   borderWidth:6,
+  // borderColor:"red"
   },
   buttonContainerPause: {
     marginTop:"5%",
     width: "40%",
     backgroundColor: "#fabd39",
-    height:"20%",
+    height: "60%",
     alignItems: "center",
  
     alignSelf: "center",
@@ -114,7 +135,7 @@ height:"100%"
     marginTop:"5%",
     width: "40%",
     backgroundColor: "#4089ff",
-    height: "20%",
+    height: "60%",
     alignItems: "center",
 
     alignSelf: "center",
@@ -122,11 +143,11 @@ height:"100%"
     justifyContent: "center",
   },
   buttonContainerTime: {
-  position:"absolute",
-  bottom:"27%",
+    // flex:0.1,
+ 
     width: "30%",
     backgroundColor: "#4089ff",
-    height: "8%",
+    height: "40%",
     alignItems: "center",
 
     alignSelf: "center",
@@ -135,17 +156,17 @@ height:"100%"
   },
   slider: {
     marginTop: "10%",
-    width: "100%",
+    width: "50%",
     
     transform: [{ scaleX: 1.5 }, { scaleY: 1.5 }],
     alignSelf: "center",
   },
  
   imageGif: {
-   position:"absolute",
+  //  position:"absolute",
   alignSelf:"center",
-  top:"-25%",
-  flex: 1,
+  // top:"-25%",
+  flex: 0.4,
     width: "80%",
     height: "80%",
     resizeMode: 'contain'
@@ -154,7 +175,7 @@ height:"100%"
   },
   centerText: {
    
-  
+   marginTop:"4%",
     alignSelf: "center",
     fontSize: 25,
     color: "#4089ff",

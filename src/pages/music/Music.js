@@ -1,13 +1,17 @@
-import React from 'react'
-import { View, Text } from 'react-native'
-import TrackPlayer from 'react-native-track-player';
+import React, { useState } from 'react'
+import { View, Text, TouchableOpacity, Image } from 'react-native'
+
+
 
 const Music = () => {
+
     return (
-        <View>
-            <Text></Text>
-        </View>
+        <View >
+    
+        
+      </View>
     )
 }
+
 
 export default Music
