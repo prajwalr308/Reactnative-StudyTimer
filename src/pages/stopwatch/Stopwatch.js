@@ -87,12 +87,14 @@ const Stopwatch = () => {
 
 const styles = StyleSheet.create({
   viewTag:{
+    
     position:"relative",
 width:"100%",
 height:"100%"
   },
 
   container:{
+    flex:1,
     position:"absolute",
     top:"26%",
     alignSelf:"center"
