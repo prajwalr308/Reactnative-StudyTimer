@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
 import { ScrollView,View, Text, TouchableOpacity, Image ,Button} from 'react-native'
 import { Audio } from 'expo-av';
-
+import data from '../../data/data'
 
 const Music = () => {
   const [sound, setSound] = React.useState();
 
-  async function playSound() {
-    console.log('Loading Sound');
+  async function playSound(audio) {
+    
+
+    console.log(audio);
     const { sound } = await Audio.Sound.createAsync(
-       require('../../audio/eg.mp3')
+     audio
     );
     setSound(sound);
 
@@ -35,8 +37,14 @@ const Music = () => {
 
     return (
       <ScrollView>
- <Button title="Play Sound" onPress={playSound} />
- <Button title="pauuse Sound" onPress={pauseSound} />
+{data.map((audio,index)=>{
+  return (
+    <View key={index}>
+      <Button title="Play Sound" onPress={()=>{playSound(audio.src)}}  />
+ <Button title="pauuse Sound" onPress={pauseSound}  />
+    </View>
+  )
+}) }
       </ScrollView>
     
         
