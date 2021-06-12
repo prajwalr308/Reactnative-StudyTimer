@@ -18,7 +18,8 @@
     "react-native-paper": "^4.9.1",
     "react-native-track-player": "^1.2.7",
     "react-native-vector-icons": "^8.1.0",
-    "react-native-web": "~0.13.12"
+    "react-native-web": "~0.13.12",
+    "expo-av": "~9.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"
