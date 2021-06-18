@@ -1,61 +1,54 @@
-import * as React from 'react'
-import { View } from 'react-native'
+import * as React from "react";
+import { View } from "react-native";
 // import BottomNavigationComp from '../../components/bottomNavigation/ButtomNavigation'
 
+import Header from "../../components/header/Header";
+import Stopwatch from "../../pages/stopwatch/Stopwatch";
 
-import Header from '../../components/header/Header'
-import Stopwatch from '../../pages/stopwatch/Stopwatch'
+import { BottomNavigation, Text } from "react-native-paper";
+import Music from "../../pages/music/Music";
 
+const StudyRoute = () => {
+  return (
+    <View style={{ backgroundColor: "white", flex: 1 }}>
+      <Header />
+      <Stopwatch />
+    </View>
+  );
+};
 
-import { BottomNavigation, Text } from 'react-native-paper';
-import Music from '../../pages/music/Music';
-
-const StudyRoute = () =>{return(
-    <View style={{backgroundColor:"white",flex:1}}><Header />
-    <Stopwatch /></View>
-    )} ;
-
-const MusicRoute = () => {return(
-    <View style={{backgroundColor:"white",}}><Header />
-    <Music />
-  </View>
-    )} ;
-
-
+const MusicRoute = () => {
+  return (
+    <View style={{ backgroundColor: "white" }}>
+      <Header />
+      <Music />
+    </View>
+  );
+};
 
 const Route = () => {
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    { key: 'study', title: 'Study', icon: 'home' ,},
-    { key: 'music', title: 'Music', icon: 'album', },
-   
+    { key: "study", title: "Study", icon: "home" },
+    { key: "music", title: "Music", icon: "album" },
   ]);
 
   const renderScene = BottomNavigation.SceneMap({
-    study:StudyRoute,
+    study: StudyRoute,
     music: MusicRoute,
-   
-    
   });
 
   return (
-    
-   <BottomNavigation
+    <BottomNavigation
       navigationState={{ index, routes }}
       onIndexChange={setIndex}
       renderScene={renderScene}
       activeColor="white"
       inactiveColor="#9fcced"
-
-      barStyle={{ backgroundColor: '#4089ff' }}
-  
-     
+      barStyle={{ backgroundColor: "#4089ff" }}
     />
-    
- 
   );
 };
-
 
 // const Home = () => {
 //     return (
@@ -63,10 +56,10 @@ const Route = () => {
 //               <Header />
 //               <Stopwatch />
 //               <BottomNavigationComp />
-          
+
 //         </View>
-   
+
 //     )
 // }
 
-export default Route
+export default Route;
