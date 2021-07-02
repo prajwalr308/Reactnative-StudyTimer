@@ -1,13 +1,15 @@
 const data = [
   {
     id: 1,
-    name: "lofi study",
+    name: "Electric Joy Ride - Origin",
     src: require("../audio/eg.mp3"),
+    imgSrc:require("../assets/electric.png")
   },
   {
     id: 2,
-    name: "forest",
+    name: "Aero Chord - Time Leap",
     src: require("../audio/eg2.mp3"),
+    imgSrc:require("../assets/music.jpg")
   },
 ];
 
